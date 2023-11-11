@@ -2,15 +2,21 @@ import { useState } from "react";
 
 function App() {
    let [counter,setCounter]=useState(0);
+
   const increment =()=>{
     console.log("Clicked",Math.random());
+  
+    if(counter<20)
     counter=counter+1;
-    setCounter(counter)
-  }
+    setCounter(counter)}
+ 
   const decrement=()=>{
+    if(counter>0)
     counter=counter-1;
-    setCounter(counter)
-  }
+
+    setCounter(counter)}
+  
+
 
 return (
   <>
