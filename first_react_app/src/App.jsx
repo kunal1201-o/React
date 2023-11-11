@@ -1,8 +1,23 @@
-
+import { useState } from "react";
 
 function App() {
+   let [counter,setCounter]=useState(0);
+  const increment =()=>{
+    console.log("Clicked",Math.random());
+    counter=counter+1;
+    setCounter(counter)
+  }
+  const decrement=()=>{
+    counter=counter-1;
+    setCounter(counter)
+  }
+
 return (
-   <h1>Hello Kunal Singh!</h1>
+  <>
+   <h1>Counter: {counter}</h1>
+   <button onClick={increment}>increase {counter}</button><br />
+   <button onClick={decrement}>decrease {counter}</button>
+   </>
   )
 }
 
