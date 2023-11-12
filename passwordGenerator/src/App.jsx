@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect,useRef } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 
 
 
@@ -8,9 +8,9 @@ function App() {
   const [addChar, setAddChar] = useState(false);
   const [password, setPassword] = useState("");
 
-  const passwordRef=useRef(null)
+  const passwordRef = useRef(null)
 
-
+  //use callback
   const passwordGenerator = useCallback(
     () => {
 
@@ -30,13 +30,14 @@ function App() {
     },
     [lengths, addnumber, addChar, setPassword],
   )
- const copytoClipBoard= useCallback(()=>{ 
-  passwordRef.current?.select() //it will show selected portion and ? it check value is present or not.
-  passwordRef.current?.setSelectionRange(0,100)  // set range which get select when click on copy button
-  window.navigator.clipboard.writeText(password)// this is use to copy text to clipboard
- },[password])
 
+  const copytoClipBoard = useCallback(() => {
+    passwordRef.current?.select() //it will show selected portion and ? it check value is present or not.
+    passwordRef.current?.setSelectionRange(0, 100)  // set range which get select when click on copy button
+    window.navigator.clipboard.writeText(password)// this is use to copy text to clipboard
+  }, [password])
 
+  //use Effect
   useEffect(() => {
     passwordGenerator()
   }, [addChar, addnumber, lengths, passwordGenerator]) //if any of the dependencies changes then this function will run
